@@ -1,0 +1,31 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Snippetbox">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>{{ template "title" . }} - Snippetbox</title>
+  </head>
+  <body>
+    <header>
+      <img src="/static/img/logo.png" alt="Snippetbox logo">
+      <h1><a href="/">Snippetbox</a></h1>
+    </header>
+
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+
+    <main>
+      {{ template "body" . }}
+    </main>
+
+    {{ template "footer" . }}
+
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>
+{{ end }}
