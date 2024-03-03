@@ -1,19 +1,21 @@
 {{ template "base" . }}
 
-{{ define "title" }}Snippet #{{ .ID }}{{ end }}
+{{ define "title" }}Snippet #{{ .Snippet.ID }}{{ end }}
 
 {{ define "body" }}
-<section class="snippet">
-  <article class="metadata">
-    <span class="title">{{ .Title }}</span>
-    <span>#{{ .ID }}</span>
-  </article>
+  {{ with .Snippet }}
+    <section class="snippet">
+      <article class="metadata">
+        <span class="title">{{ .Title }}</span>
+        <span>#{{ .ID }}</span>
+      </article>
 
-  <pre><code>{{ .Content }}</code></pre>
+      <pre><code>{{ .Content }}</code></pre>
 
-  <article class="metadata">
-    <time>Created: {{ .Created }}</time>
-    <time>Expires: {{ .Expires }}</time>
-  </article>
-</section>
+      <article class="metadata">
+        <time>Created: {{ .Created }}</time>
+        <time>Expires: {{ .Expires }}</time>
+      </article>
+    </section>
+  {{ end }}
 {{ end }}
