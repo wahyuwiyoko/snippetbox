@@ -60,7 +60,7 @@ nav a.live {
 }
 
 main {
-  max-width: 80ch;
+  max-width: 100ch;
   margin: 3rem auto;
   flex-grow: 1;
 }
@@ -107,6 +107,28 @@ section.snippet .metadata .title {
 
 section.snippet pre {
   padding: 0 1rem;
+}
+
+table {
+  background: #ffffff;
+  border: 1px solid #e4e5e7;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+tr {
+  border-bottom: 1px solid #e4e5e7;
+}
+
+tr:nth-child(2n) {
+  background-color: #f7f9fa;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 0.5rem 1rem;
 }
 
 footer {
