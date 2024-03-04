@@ -184,6 +184,15 @@ input[type="submit"] {
   border-radius: 3px;
 }
 
+label.error {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+label.error + input, label.error + textarea {
+  border: 2px solid #c0392b;
+}
+
 footer {
   color: #6a6c6f;
   background-color: #f7f9fa;
