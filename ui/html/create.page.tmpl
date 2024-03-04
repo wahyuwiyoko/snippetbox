@@ -4,35 +4,37 @@
 
 {{ define "body" }}
 <form action="/snippet/create" method="post">
-  <article>
-    <label>Title:</label>
-    {{ with .FormErrors.title }}
-      <label class="error">{{ . }}</label>
-    {{ end }}
-    <input type="text" name="title" value='{{ .FormData.Get "title"}}' maxlength="100" required>
-  </article>
+  {{ with .Form }}
+    <article>
+      <label>Title:</label>
+      {{ with .Errors.Get "title" }}
+        <label class="error">{{ . }}</label>
+      {{ end }}
+      <input type="text" name="title" value='{{ .Get "title" }}' maxlength="100" required>
+    </article>
 
-  <article>
-    <label>Content:</label>
-    {{ with .FormErrors.content }}
-      <label class="error">{{ . }}</label>
-    {{ end }}
-    <textarea name="content" required>{{ .FormData.Get "content" }}</textarea>
-  </article>
+    <article>
+      <label>Content:</label>
+      {{ with .Errors.Get "content" }}
+        <label class="error">{{ . }}</label>
+      {{ end }}
+      <textarea name="content" required>{{ .Get "content" }}</textarea>
+    </article>
 
-  <article class="expires">
-    <label>Delete in:</label>
-    {{ with .FormErrors.expires }}
-      <label class="error">{{ . }}</label>
-    {{ end }}
-    {{ $expire := or (.FormData.Get "expires") "365" }}
-    <input type="radio" name="expires" value="365" {{ if (eq $expire "365") }}checked{{ end }}> One Year
-    <input type="radio" name="expires" value="7" {{ if (eq $expire "7") }}checked{{ end }}>One Week
-    <input type="radio" name="expires" value="1" {{ if (eq $expire "1") }}checked{{ end }}>One Day
-  </article>
+    <article class="expires">
+      <label>Delete in:</label>
+      {{ with .Errors.Get "expires" }}
+        <label class="error">{{ . }}</label>
+      {{ end }}
+      {{ $expire := or (.Get "expires") "365" }}
+      <input type="radio" name="expires" value="365" {{ if (eq $expire "365") }}checked{{ end }}> One Year
+      <input type="radio" name="expires" value="7" {{ if (eq $expire "7") }}checked{{ end }}>One Week
+      <input type="radio" name="expires" value="1" {{ if (eq $expire "1") }}checked{{ end }}>One Day
+    </article>
 
-  <article class="submit">
-    <input type="submit" value="Publish snippet">
-  </article>
+    <article class="submit">
+      <input type="submit" value="Publish snippet">
+    </article>
+  {{ end }}
 </form>
 {{ end }}
