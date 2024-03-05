@@ -111,6 +111,10 @@ section.snippet pre {
   padding: 0 1rem;
 }
 
+pre {
+  white-space: pre-wrap;
+}
+
 table {
   background: #ffffff;
   border: 1px solid #e4e5e7;
@@ -192,6 +196,15 @@ label.error {
 
 label.error + input, label.error + textarea {
   border: 2px solid #c0392b;
+}
+
+article.flash {
+  color: #ffffff;
+  background-color: #34495e;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 footer {

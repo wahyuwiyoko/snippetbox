@@ -21,6 +21,9 @@
     </nav>
 
     <main>
+      {{ with .Flash }}
+        <article class="flash">{{ . }}</article>
+      {{ end }}
       {{ template "body" . }}
     </main>
 
