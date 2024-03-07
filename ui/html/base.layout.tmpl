@@ -21,23 +21,28 @@
           <li>
             <a href="/">Home</a>
           </li>
-          <li>
-            <a href="/snippet/create">Create Snippet</a>
-          </li>
+          {{ if .AuthenticatedUser }}
+            <li>
+              <a href="/snippet/create">Create Snippet</a>
+            </li>
+          {{ end }}
         </ul>
 
         <ul>
-          <li>
-            <a href="/user/signup">Signup</a>
-          </li>
-          <li>
-            <a href="/user/login">Login</a>
-          </li>
-          <li>
-            <form action="/user/logout" method="post">
-              <button>Logout</button>
-            </form>
-          </li>
+          {{ if .AuthenticatedUser }}
+            <li>
+              <form action="/user/logout" method="post">
+                <button>Logout</button>
+              </form>
+            </li>
+          {{ else }}
+            <li>
+              <a href="/user/signup">Signup</a>
+            </li>
+            <li>
+              <a href="/user/login">Login</a>
+            </li>
+          {{ end }}
         </ul>
       </section>
     </nav>
