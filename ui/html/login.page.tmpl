@@ -1,0 +1,27 @@
+{{ template "base" . }}
+
+{{ define "title" }}Login{{ end }}
+
+{{ define "body" }}
+<form action="/user/login" method="post">
+  {{ with .Form }}
+    {{ with .Errors.Get "generic"}}
+      <label class="error">{{ . }}</label>
+    {{ end }}
+
+    <article>
+      <label>Email:</label>
+      <input type="email" name="email" value='{{ .Get "email" }}' required>
+    </article>
+
+    <article>
+      <label>Password:</label>
+      <input type="password" name="password" required>
+    </article>
+
+    <article class="submit">
+      <input type="submit" value="Login">
+    </article>
+  {{ end }}
+</form>
+{{ end }}
