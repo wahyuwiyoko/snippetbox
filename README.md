@@ -17,5 +17,5 @@ go run {your-go-path}/src/crypto/tls/generate_cert.go --rsa-bits=2048 --host=loc
 Run the web server:
 
 ```sh
-go run cmd/web/*
+go run cmd/web/!(*_test).go
 ```
