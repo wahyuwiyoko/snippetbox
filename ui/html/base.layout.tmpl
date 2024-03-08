@@ -33,7 +33,7 @@
             <li>
               <form action="/user/logout" method="post">
                 <input type="hidden" name="csrf_token" value="{{ .CSRFToken }}">
-                <button>Logout</button>
+                <button>Logout ({{ .AuthenticatedUser.Name }})</button>
               </form>
             </li>
           {{ else }}

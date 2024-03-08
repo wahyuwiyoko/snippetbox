@@ -24,6 +24,10 @@ type application struct {
 	users         *mysql.UserModel
 }
 
+type contextKey string
+
+var contextKeyUser = contextKey("user")
+
 func openDB(dsn string) (*sql.DB, error) {
 	db, err := sql.Open("mysql", dsn)
 
