@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/http/cookiejar"
 	"net/http/httptest"
+	"net/url"
 	"regexp"
 	"testing"
 	"time"
@@ -86,4 +87,22 @@ func extractCSRFToken(t *testing.T, body []byte) string {
 	}
 
 	return html.UnescapeString(string(matches[1]))
+}
+
+func (ts *testServer) postForm(t *testing.T, urlPath string, form url.Values) (int, http.Header, []byte) {
+	result, err := ts.Client().PostForm(ts.URL+urlPath, form)
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	defer result.Body.Close()
+
+	body, err := io.ReadAll(result.Body)
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	return result.StatusCode, result.Header, body
 }
