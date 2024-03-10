@@ -57,6 +57,7 @@ nav section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -74,6 +75,10 @@ nav a.live {
   text-decoration: underline;
 }
 
+nav button {
+  font-size: inherit;
+}
+
 main {
   width: 100ch;
   margin: 3rem auto;
@@ -87,6 +92,26 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  color: #62cb31;
+}
+
+button:hover {
+  color: #4eb722;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  color: #ffffff;
+  background-color: #4eb722;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 section.snippet {
@@ -173,11 +198,16 @@ form article.submit {
   display: inline-block;
 }
 
-form input[type="text"] {
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
   padding: 0.75rem 1rem;
 }
 
-form input[type=text], textarea {
+form input[type=text],
+form input[type="password"],
+form input[type="email"],
+textarea {
   color: #6a6c6f;
   background-color: #ffffff;
   border: 1px solid #e4e5e7;
@@ -189,7 +219,8 @@ textarea {
   height: 10rem;
 }
 
-textarea, input {
+textarea,
+input {
   font-size: 1rem;
   font-family: monospace;
 }
@@ -208,7 +239,8 @@ label.error {
   font-weight: 600;
 }
 
-label.error + input, label.error + textarea {
+label.error + input,
+label.error + textarea {
   border: 2px solid #c0392b;
 }
 
